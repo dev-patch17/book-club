@@ -27,6 +27,9 @@ class Reader(db.Model):
   surname = db.Column(db.String(80), index = True, unique = False)
   email = db.Column(db.String(120), index = True, unique = True)
 
+  # establish relationships
+  reviews = db.relationship('Review', backref='reviewer', lazy='dynamic')
+
   # printout for Reader objects
   def __repr__(self):
     return "Reader: {}".format(self.email)
