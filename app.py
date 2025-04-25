@@ -4,7 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 # database config
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///myDB.db'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False # to supress warnings
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False # to suppress warnings
 db = SQLAlchemy(app)
 
 # declare the Book model
