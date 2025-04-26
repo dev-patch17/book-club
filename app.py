@@ -34,6 +34,20 @@ class Reader(db.Model):
   def __repr__(self):
     return "Reader: {}".format(self.email)
 
+# declare the Review model
+class Review(db.Model):
+  id = db.Column(db.Integer, primary_key = True)
+  stars = db.Column(db.Integer, unique = False) # a review's rating
+  text = db.Column(db.String(200), unique = False) # the review itself
+
+  # foreign keys
+  # note the lower case here: 'book.id' instead of 'Book.id'
+  book_id = db.Column(db.Integer, db.ForeignKey('book.id'))
+
+  # printout for Review objects
+  def __repr__(self):
+    return "Review: {} stars: {}".format(self.text, self.stars)
+
 # index route
 @app.route('/')
 def index():
