@@ -43,6 +43,7 @@ class Review(db.Model):
   # foreign keys
   # note the lower case here: 'book.id' instead of 'Book.id'
   book_id = db.Column(db.Integer, db.ForeignKey('book.id'))
+  reviewer_id = db.Column(db.Integer, db.ForeignKey('reader.id'))
 
   # printout for Review objects
   def __repr__(self):
